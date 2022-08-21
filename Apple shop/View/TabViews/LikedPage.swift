@@ -57,7 +57,7 @@ struct LikedPage: View {
                         }
                     } else{
                         // Display Liked products
-                        VStack(spacing: 10){
+                        VStack(spacing: 11){
                             ForEach(sharedData.likedProducts){ product in
                                
                                 HStack{
@@ -70,14 +70,18 @@ struct LikedPage: View {
                                                 .font(.title2)
                                                 .foregroundColor(.red)
                                         }.padding(.trailing)
-
                                     }
+                                    // Card View
                                     CardView(product: product)
+                                    
                                 }.padding(.top,6)
                             }
-                        }.padding([.top, .horizontal],30)
+                        }
+                        .padding(.top, 22)
+                        .padding(.horizontal)
                     }
                 }
+                .padding()
             }
             .navigationBarHidden(true)
             .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -70,12 +70,15 @@ struct CartPage: View {
                                                     .font(.title2)
                                                     .foregroundColor(.red)
                                             }.padding(.trailing)
-
                                         }
+                                        // Card view
                                         CardView(product: $product)
+                                        
                                     }.padding(.top,6)
                                 }
-                            }.padding([.top, .horizontal],30)
+                            }
+                            .padding(.top,22)
+                            .padding(.horizontal)
                         }
                     }
                 }
@@ -110,12 +113,12 @@ struct CartPage: View {
                                 .cornerRadius(15)
                                 .shadow(color: Color.black.opacity(0.05), radius: 5, x: 5, y: 5)
                         }
-                        .padding(.bottom,-20)
+                        .padding(.bottom)
                     }
                     .padding(.horizontal,25)
                     
                 }
-                
+                       
             }
             .navigationBarHidden(true)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -126,43 +129,7 @@ struct CartPage: View {
             )
         }
     }
-    
-//    @ViewBuilder
-//    func CardView(product: Product)->some View{
-//
-//        HStack(spacing: 15){
-//
-//            Image(product.productImage)
-//                .resizable()
-//                .aspectRatio(contentMode: .fit)
-//                .frame(width: 100, height: 100)
-//
-//            VStack(alignment: .leading, spacing: 8) {
-//                Text(product.title)
-//                    .font(.custom(customFont, size: 18).bold())
-//                    .lineLimit(1)
-//
-//                Text(product.subtitle)
-//                    .font(.custom(customFont, size: 16))
-//                    .fontWeight(.semibold)
-//                    .foregroundColor(Color("Purple"))
-//
-//
-//                Text(product.type.rawValue)
-//                    .font(.custom(customFont, size: 13))
-//                    .foregroundColor(.gray)
-//
-//            }
-//        }
-//        .padding(.horizontal,10)
-//            .padding(.vertical,10)
-//            .frame(maxWidth: .infinity, alignment: .leading)
-//            .background(
-//                Color.white
-//                    .cornerRadius(15)
-//            )
-//
-//    }
+
     
     // delete Liked cart
     func deleteLikedCart(product: Product){

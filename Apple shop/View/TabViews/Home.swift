@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct Home: View {
-  //  var animation = Namespace.ID.self
-    var animation: Namespace.ID
-    @StateObject var homeData: HomeViewModel = HomeViewModel()
+    
     @EnvironmentObject var shardData: SharedDataModel
+    @StateObject var homeData: HomeViewModel = HomeViewModel()
+    
+    var animation: Namespace.ID
     
     var body: some View {
        
@@ -27,14 +28,13 @@ struct Home: View {
                     }
                 }
                 .frame(width:getRect().width / 1.6)
-                .contentShape(Rectangle())
                 .onTapGesture {
                     withAnimation(.easeInOut) {
                         homeData.searchActivated = true
                     }
                 }
                 
-                // Text ...
+                // Headline Text ...
                 Text("Order online\ncollect in store")
                     .font(.custom(customFont, size: 28).bold())
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -46,11 +46,12 @@ struct Home: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 18){
                         ForEach(ProductType.allCases, id: \.self){ type in
-                         productTypeView(type: type)
-                                
+                            productTypeView(type: type)
                         }
-                    }.padding(.horizontal)
-                }.padding(.top,10)
+                    }
+                    .padding(.horizontal)
+                }
+                .padding(.top,17)
                 
                 
                 // Product Card...
@@ -59,9 +60,10 @@ struct Home: View {
                         ForEach(homeData.filteredProducts){ product in
                             productCardVeiw(product: product)
                         }
-                    }.padding(.horizontal)
-                        .padding(.top,80)
-                }.padding(.top,20)
+                    }
+                    .padding(.horizontal)
+                    .padding(.top,80)
+                }.padding(.top,30)
                 
                 
                 // See More Button...
@@ -80,8 +82,8 @@ struct Home: View {
                 }
                 .frame(maxWidth: .infinity,alignment: .trailing)
                 .padding(.trailing)
-                .padding(.top,10)
-
+                .padding(.top,25)
+                
                 
             }
             .padding(.vertical)
@@ -132,7 +134,7 @@ struct Home: View {
             withAnimation {
                 homeData.productType = type
             }
-           
+            
         } label: {
             Text(type.rawValue)
                 .font(.custom(customFont, size: 16))
@@ -140,18 +142,20 @@ struct Home: View {
                 .foregroundColor(homeData.productType == type ? Color("Purple") : .gray)
                 .padding(.bottom,10)
                 .overlay(
+                  
                     ZStack{
                         if homeData.productType == type {
                             Capsule()
                                 .fill(Color("Purple"))
-                                //.matchedGeometryEffect(id: "PRODUCTTAB", in: animation)
+                                .matchedGeometryEffect(id: "PRODUCTTAB", in: animation)
                                 .frame(height: 2)
                         }else{
                             Capsule()
                                 .fill(Color.clear)
                                 .frame(height: 2)
                         }
-                    }.padding(.horizontal,-5)
+                    }
+                    .padding(.horizontal,-5)
                     ,alignment: .bottom
                 )
         }
@@ -174,9 +178,9 @@ struct Home: View {
                         .matchedGeometryEffect(id: "\(product.id)IMAGE", in: animation)
                 }
             }
-                .frame(width: getRect().width / 2.5, height: getRect().width / 2.5)
-                .offset(y: -80)
-                .padding(.bottom,-80)
+            .frame(width: getRect().width / 2.5, height: getRect().width / 2.5)
+            .offset(y: -80)
+            .padding(.bottom,-70)
             
             Text(product.title)
                 .font(.custom(customFont, size: 15).bold())
@@ -190,18 +194,20 @@ struct Home: View {
             Text(product.price)
                 .font(.custom(customFont, size: 15).bold())
                 .foregroundColor(Color("Purple"))
-        }.padding([.horizontal,.bottom],10)
-            .background(
-                Color.white
-                    .cornerRadius(20))
-            .onTapGesture {
-                withAnimation(.easeInOut){
-                    
-                    shardData.detailProducts = product
-                    shardData.showDetailProducts = true
-                    
-                }
+                .padding(.vertical,10)
+        }
+        .padding([.horizontal,.bottom],10)
+        .background(
+            Color.white
+                .cornerRadius(20)
+        )
+        .onTapGesture {
+            withAnimation(.easeInOut){
+                
+                shardData.detailProducts = product
+                shardData.showDetailProducts = true
             }
+        }
     }
 }
 

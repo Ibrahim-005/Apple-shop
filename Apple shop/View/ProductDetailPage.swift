@@ -30,7 +30,7 @@ struct ProductDetailPage: View {
                         }
                     } label: {
                         Image(systemName: "arrow.left")
-                            .font(.title)
+                            .font(.title2)
                             .foregroundColor(Color.black.opacity(1.7))
                     }
                     Spacer()
@@ -42,7 +42,7 @@ struct ProductDetailPage: View {
                             .renderingMode(.template)
                             .resizable()
                             .foregroundColor(isLiked() ? .red : Color.black.opacity(1.7))
-                            .frame(width: 30, height: 30)
+                            .frame(width: 24, height: 24)
                             
                     }
                 }.padding()

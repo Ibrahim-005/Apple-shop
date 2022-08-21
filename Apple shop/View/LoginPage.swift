@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginPage: View {
+    
     @StateObject var loginData: LoginPageModel = LoginPageModel()
     
     var body: some View {
@@ -15,10 +16,9 @@ struct LoginPage: View {
         VStack(spacing: 12){
             
             Text("Welcome\nBack")
-                .font(.custom(customFont, size: 55))
-                .fontWeight(.bold)
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .font(.custom(customFont, size: 55).bold())
                 .foregroundColor(Color.white)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .frame(height: getRect().height / 3.5)
                 .padding()
             
@@ -26,8 +26,7 @@ struct LoginPage: View {
                 VStack(spacing: 15){
                     
                     Text(loginData.UserRegister ? "Register" : "Login")
-                        .bold()
-                        .font(.custom(customFont, size: 22))
+                        .font(.custom(customFont, size: 22).bold())
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     
@@ -38,7 +37,7 @@ struct LoginPage: View {
                         .padding(.top,20)
                     
                     if loginData.UserRegister {
-                        customTextField(title: "Re-enter-Password", icon: "lock", hint: "123456", value: $loginData.re_enter_Password, showPassword: $loginData.showReenterPaswoed)
+                        customTextField(title: "Re-enter-Password", icon: "lock", hint: "123456", value: $loginData.re_enter_Password, showPassword: $loginData.showRe_enter_Password)
                             .padding(.top,20)
                     }
                      
@@ -51,10 +50,9 @@ struct LoginPage: View {
                             .foregroundColor(Color("Purple"))
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.top, 8)
-                        
                     }
-
                     
+                 // Login Button...
                     Button {
                         if loginData.UserRegister{
                             loginData.Register()
@@ -64,14 +62,13 @@ struct LoginPage: View {
                     } label: {
                         Text(loginData.UserRegister ? "Register" : "Login")
                             .font(.custom(customFont, size: 15).bold())
-                            .padding(.vertical, 18)
                             .foregroundColor(Color.white)
+                            .padding(.vertical, 18)
                             .frame(maxWidth: .infinity)
                             .background(Color("Purple"))
                             .cornerRadius(10)
                     }
-                    .padding(.horizontal,20)
-                    .padding(.top, 20)
+                    .padding([.horizontal, .top],20)
                     
                     
                     Button {
@@ -103,10 +100,11 @@ struct LoginPage: View {
             loginData.password = ""
             loginData.re_enter_Password = ""
             loginData.showPassword = false
-            loginData.showReenterPaswoed = false
+            loginData.showRe_enter_Password = false
         }
     }
     
+    // Custom TextField...
     @ViewBuilder
     func customTextField(title: String, icon: String, hint: String, value: Binding<String>, showPassword: Binding<Bool>)-> some View{
         
@@ -118,7 +116,8 @@ struct LoginPage: View {
             } icon: {
                 Image(systemName: icon)
             }.foregroundColor(Color.black.opacity(0.8))
-
+          
+            // Show Secure or Text - Fields
             if title.contains("Password") && !showPassword.wrappedValue {
                 SecureField(hint, text: value)
                     .padding(.top,2)
@@ -129,9 +128,9 @@ struct LoginPage: View {
             
             Divider()
                 .background(Color.black.opacity(0.8))
+            
         }.padding(.top,2)
             .overlay(
-                
                 Group{
                     
                     if title.contains("Password"){
@@ -146,9 +145,7 @@ struct LoginPage: View {
                                 .padding(.top, 5)
                             
                         }.offset(y: 8)
-                        
                     }
-                    
                 },alignment: .trailing
             )
     }

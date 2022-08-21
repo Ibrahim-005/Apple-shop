@@ -34,18 +34,16 @@ struct OnboardingPage: View {
             } label: {
                 Text("Get Started")
                     .font(.custom(customFont, size: 18).bold())
-                    .fontWeight(.semibold)
+                    .foregroundColor(Color("Purple"))
                     .padding(.vertical, 18)
                     .frame(maxWidth: .infinity)
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .shadow(color: Color.black.opacity(0.8), radius: 5, x: 5, y: 5)
-                    .foregroundColor(Color("Purple"))
-
+                    .background(Color.white .cornerRadius(10))
+                    .shadow(color: Color.black.opacity(0.4), radius: 5, x: 5, y: 5)
+                
             }
             .padding(.horizontal,30)
             .offset(y: getRect().height < 750 ? 20 : 40)
-
+            
             Spacer()
             
         }
@@ -53,7 +51,7 @@ struct OnboardingPage: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.top, getRect().height < 750 ? 0 : 20)
         .background(Color("Purple"))
-        
+        // Go to LoginPage
         .overlay(
             Group{
                 if showloginPage{
@@ -69,7 +67,7 @@ struct OnboardingPage_Previews: PreviewProvider {
         OnboardingPage()
     }
 }
-
+// Get screen bounds
 extension View {
     func getRect()-> CGRect {
         return UIScreen.main.bounds

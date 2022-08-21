@@ -38,13 +38,15 @@ struct ProfilePage: View {
                                 .rotationEffect(.init(degrees: 180))
                             
                             Text("Address: 43 Oxford Road\nM13 4GR\nManchester, UK")
-                                .font(.custom(customFont, size: 16))
+                                .font(.custom(customFont, size: 14))
+                                .foregroundColor(Color.black.opacity(0.8))
                         }
-                        .frame(width: .infinity, alignment: .leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .padding([.horizontal, .bottom])
                     .background(Color.white .cornerRadius(10))
-                    .padding(.top,40)
+                    
+                    .padding([.top, .horizontal],40)
                     
                     // Custom Navigation Links...
                     

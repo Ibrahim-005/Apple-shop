@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct MainPage: View {
-    @Namespace var animation
-    @State var currentTab: Tab = .Home
+    
     @StateObject var sharedData: SharedDataModel = SharedDataModel()
-   // @EnvironmentObject var shareddata : SharedDataModel
-//    init{
-//        UITabBar.appearance().isHidden = true
-//    }
+    @State var currentTab: Tab = .Home
+    @Namespace var animation
+    
+    init(){
+        UITabBar.appearance().isHidden = true
+    }
     
     var body: some View {
        
@@ -33,26 +34,26 @@ struct MainPage: View {
                 ProfilePage()
                     .tag(Tab.Profile)
                 
-                    CartPage()
+                CartPage()
                     .environmentObject(sharedData)
                     .tag(Tab.Cart)
             }
            
             HStack(spacing: 10){
+                
                 ForEach(Tab.allCases, id: \.self){ tab in
+                   
                     Button {
-                        
-                                sharedData.showOptionDelete = false
-                            
                         currentTab = tab
+                       // Dismis delete pins of Liked & Cart pages When changed Currently Tab
+                        sharedData.showOptionDelete = false
                     } label: {
                         Image(tab.rawValue)
                             .resizable()
                             .renderingMode(.template)
-                            .aspectRatio( contentMode: .fit)
+                            .aspectRatio(contentMode: .fit)
                             .frame(width: 22, height: 22)
                             .background(
-                            
                                 Color("Purple")
                                     .opacity(0.1)
                                     .cornerRadius(5)
@@ -61,13 +62,14 @@ struct MainPage: View {
                                 // Making little big...
                                     .padding(-7)
                                     .opacity(currentTab == tab ? 1 : 0)
-                                
                             )
                             .frame(maxWidth: .infinity)
-                            .foregroundColor(currentTab == tab ? Color("Purple") : Color.black.opacity(0.3))
+                            .foregroundColor(currentTab == tab ? Color("Purple") : Color.black.opacity(0.3)
+                            )
                     }
                 }
-            } .padding([.horizontal, .bottom])
+            }.padding([.horizontal, .top])
+             .padding(.bottom, 10)
                 
         }
         .background(Color("HomeBG").ignoresSafeArea())
@@ -80,7 +82,6 @@ struct MainPage: View {
                 }
             }
         )
-        
     }
 }
 

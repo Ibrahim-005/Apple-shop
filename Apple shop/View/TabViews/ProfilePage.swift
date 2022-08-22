@@ -11,7 +11,7 @@ struct ProfilePage: View {
     var body: some View {
         
         NavigationView{
-            ScrollView(.vertical, showsIndicators: false) {
+            ScrollView(.vertical, showsIndicators: false) { 
                 VStack{
                     
                     Text("Profile")
@@ -45,7 +45,6 @@ struct ProfilePage: View {
                     }
                     .padding([.horizontal, .bottom])
                     .background(Color.white .cornerRadius(10))
-                    
                     .padding([.top, .horizontal],40)
                     
                     // Custom Navigation Links...
@@ -119,11 +118,7 @@ struct ProfilePage: View {
             }
             .foregroundColor(.black)
             .padding()
-            .background(
-                
-                Color.white
-                    .cornerRadius(12)
-            )
+            .background( Color.white .cornerRadius(12) )
             .padding(.horizontal)
             .padding(.top,10)
         }

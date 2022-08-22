@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct CartPage: View {
+    
     @EnvironmentObject var sharedData: SharedDataModel
-    @State var deleteOption: Bool = false
+    
     var body: some View {
       
         NavigationView{
@@ -26,7 +27,7 @@ struct CartPage: View {
                             
                             Button {
                                 withAnimation {
-                                    sharedData.showOptionDelete.toggle()
+                                    sharedData.showDeleteOption.toggle()
                                 }
                             } label: {
                                 Image("Delete")
@@ -36,7 +37,7 @@ struct CartPage: View {
                             }.opacity($sharedData.CartProducts.isEmpty ? 0 : 1)
                         }.padding()
                         
-                        
+                        // Empty view
                         if $sharedData.CartProducts.isEmpty{
                             // If liked products no
                             Group{
@@ -62,25 +63,27 @@ struct CartPage: View {
                                    
                                     HStack{
                                         
-                                        if sharedData.showOptionDelete{
+                                        if sharedData.showDeleteOption{
                                             Button {
                                                deleteLikedCart(product: product)
                                             } label: {
                                                 Image(systemName: "minus.circle.fill")
                                                     .font(.title2)
                                                     .foregroundColor(.red)
-                                            }.padding(.trailing)
+                                            }
+                                            .padding(.trailing)
                                         }
+                                        
                                         // Card view
                                         CardView(product: $product)
                                         
                                     }.padding(.top,6)
                                 }
                             }
-                            .padding(.top,22)
+                            .padding(.top,17)
                             .padding(.horizontal)
                         }
-                    }
+                    }.padding(.horizontal)
                 }
                 
                 if !$sharedData.CartProducts.isEmpty{

@@ -42,8 +42,6 @@ struct SearchView: View {
                         .focused($startTF)
                         .textCase(.lowercase)
                         .disableAutocorrection(true)
-                        
-                       
                 }
                 .padding(.vertical, 12)
                 .padding(.horizontal)
@@ -52,6 +50,7 @@ struct SearchView: View {
                 )
                 .matchedGeometryEffect(id: "SEARCHBAR", in: animation)
                 .padding(.trailing,20)
+                
             }
             .padding(.horizontal)
             .padding(.top)
@@ -96,9 +95,8 @@ struct SearchView: View {
                             // See my Staggered Video..
                             // Link in Bio...
                             StaggeredGrid(columns: 2,spacing: 20, list: products) {product in
-                                
                                 // Card View....
-                              productCardVeiw(product: product)
+                                productCardVeiw(product: product)
                             }
                         }
                         .padding()

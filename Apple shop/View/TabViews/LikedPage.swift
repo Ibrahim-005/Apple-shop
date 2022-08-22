@@ -10,14 +10,13 @@ import SwiftUI
 struct LikedPage: View {
     
     @EnvironmentObject var sharedData: SharedDataModel
-    @State var deleteOption : Bool = false
     
     var body: some View {
       
         NavigationView{
             ScrollView(.vertical, showsIndicators: false) {
                 VStack{
-                    
+                    // Bar title & Delete Option
                     HStack{
                         Text("Favourites")
                             .font(.custom(customFont, size: 25).bold())
@@ -26,17 +25,19 @@ struct LikedPage: View {
                         
                         Button {
                             withAnimation {
-                                sharedData.showOptionDelete.toggle()
+                                sharedData.showDeleteOption.toggle()
                             }
                         } label: {
                             Image("Delete")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 25, height: 25)
-                        }.opacity(sharedData.likedProducts.isEmpty ? 0 : 1)
-                    }.padding()
+                        }
+                        .opacity(sharedData.likedProducts.isEmpty ? 0 : 1)
+                    }
+                    .padding()
                     
-                    
+                   // Showing liked products
                     if sharedData.likedProducts.isEmpty{
                         // If liked products no
                         Group{
@@ -62,7 +63,7 @@ struct LikedPage: View {
                                
                                 HStack{
                                     
-                                    if sharedData.showOptionDelete{
+                                    if sharedData.showDeleteOption {
                                         Button {
                                            deleteLikedCart(product: product)
                                         } label: {
@@ -77,11 +78,11 @@ struct LikedPage: View {
                                 }.padding(.top,6)
                             }
                         }
-                        .padding(.top, 22)
+                        .padding(.top, 17)
                         .padding(.horizontal)
                     }
                 }
-                .padding()
+                .padding(.horizontal)
             }
             .navigationBarHidden(true)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -117,13 +118,12 @@ struct LikedPage: View {
             }
         }
         .padding(.horizontal,10)
-            .padding(.vertical,10)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(
-                Color.white
-                    .cornerRadius(15)
-            )
-           
+        .padding(.vertical,10)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(
+            Color.white
+                .cornerRadius(15)
+        )
     }
     
     // delete Liked cart
@@ -135,7 +135,6 @@ struct LikedPage: View {
           let _ =  withAnimation {
                 sharedData.likedProducts.remove(at: index)
             }
-           
         }
     }
 }

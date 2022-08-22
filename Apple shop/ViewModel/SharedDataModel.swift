@@ -17,7 +17,7 @@ class SharedDataModel: ObservableObject {
     @Published var likedProducts : [Product] = []
     @Published var CartProducts : [Product] = []
     
-    @Published var showOptionDelete: Bool = false
+    @Published var showDeleteOption: Bool = false
     // calculating Total price...
     func getTotalPrice()->String{
         

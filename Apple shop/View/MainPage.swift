@@ -46,7 +46,7 @@ struct MainPage: View {
                     Button {
                         currentTab = tab
                        // Dismis delete pins of Liked & Cart pages When changed Currently Tab
-                        sharedData.showOptionDelete = false
+                        sharedData.showDeleteOption = false
                     } label: {
                         Image(tab.rawValue)
                             .resizable()

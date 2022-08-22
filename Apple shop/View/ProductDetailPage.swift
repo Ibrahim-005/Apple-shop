@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct ProductDetailPage: View {
-    var product: Product
     
+    var product: Product
     // For Matched Geometry Effect...
     var animation: Namespace.ID
-    
     // Shared Data Model...
     @EnvironmentObject var sharedData: SharedDataModel 
     
-    @EnvironmentObject var homeData: HomeViewModel
+  //  @EnvironmentObject var homeData: HomeViewModel
     
     var body: some View {
         
@@ -53,11 +52,12 @@ struct ProductDetailPage: View {
                     .matchedGeometryEffect(id: "\(product.id)\(sharedData.fromSearchPage ? "SEARCH" : "IMAGE")", in: animation)
                     .padding(.horizontal)
                     .offset(y: -12)
-                    .frame(maxWidth: .infinity)
                 
             }
             .frame(height: getRect().height / 2.7)
             .zIndex(1)
+            
+            
             ScrollView(.vertical, showsIndicators: false) {
                 
                 VStack(alignment: .leading, spacing: 15){
@@ -114,10 +114,7 @@ struct ProductDetailPage: View {
                             .shadow(color: Color.black.opacity(0.06), radius: 5, x: 5, y: 5)
                     }
                 }
-                .padding([.horizontal, .bottom],20)
-                .padding(.top,22)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                
+                .padding([.horizontal, .bottom, .top],22)
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)

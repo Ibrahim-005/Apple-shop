@@ -39,7 +39,7 @@ __Products Detail Page:__
 __Liked products Page:__
 
 
-![Simulator Screen Shot - iPhone 12 - 2022-08-28 at 21 13 36_187x405](https://user-images.githubusercontent.com/112332266/187116585-8fe881ef-ca0c-4774-b7a3-770c9bc6bcd7.png)___![Simulator Screen Shot - iPhone 12 - 2022-08-28 at 21 29 26_187x405](https://user-images.githubusercontent.com/112332266/187116592-20cb26f2-ac00-4521-aa42-f834551ecc71.png)
+![Simulator Screen Shot - iPhone 12 - 2022-08-28 at 21 13 36_187x405](https://user-images.githubusercontent.com/112332266/187116585-8fe881ef-ca0c-4774-b7a3-770c9bc6bcd7.png)___![Simulator Screen Shot - iPhone 12 - 2022-08-28 at 21 29 29_187x405](https://user-images.githubusercontent.com/112332266/187116726-ee3c7449-aaec-4b9b-8857-708c26265a31.png)
 
 
 __Profile:__
@@ -50,6 +50,6 @@ __Profile:__
 __Cart:__
 
 
-![Simulator Screen Shot - iPhone 12 - 2022-08-28 at 21 30 11_187x405](https://user-images.githubusercontent.com/112332266/187116689-e74e45d4-a745-49b3-9bab-e60671fb6473.png) ___ ![Simulator Screen Shot - iPhone 12 - 2022-08-28 at 21 30 23_187x405](https://user-images.githubusercontent.com/112332266/187116707-ae2883ce-c1fb-4325-8cb4-bfc262b196eb.png) ___ ![Simulator Screen Shot - iPhone 12 - 2022-08-28 at 21 29 29_187x405](https://user-images.githubusercontent.com/112332266/187116726-ee3c7449-aaec-4b9b-8857-708c26265a31.png)
+![Simulator Screen Shot - iPhone 12 - 2022-08-28 at 21 30 11_187x405](https://user-images.githubusercontent.com/112332266/187116689-e74e45d4-a745-49b3-9bab-e60671fb6473.png) ___ ![Simulator Screen Shot - iPhone 12 - 2022-08-28 at 21 30 23_187x405](https://user-images.githubusercontent.com/112332266/187116707-ae2883ce-c1fb-4325-8cb4-bfc262b196eb.png) ___![Simulator Screen Shot - iPhone 12 - 2022-08-28 at 21 29 26_187x405](https://user-images.githubusercontent.com/112332266/187116592-20cb26f2-ac00-4521-aa42-f834551ecc71.png)
 
 
